@@ -32,7 +32,7 @@ export class FormRegisterComponent implements OnInit {
       city: ['', Validators.required],
       commune: ['', Validators.required],
       postal: ['', Validators.required],
-      isCheked: ['', Validators.required]
+      isCheked: [false, Validators.requiredTrue]
     });
   }
 //
