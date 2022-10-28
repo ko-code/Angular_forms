@@ -23,24 +23,26 @@ export class FormRegisterComponent implements OnInit {
       pLastName: ['', Validators.required],
       mLastName: ['', Validators.required],
       fBorn: ['', Validators.required ],
-      pEmail: ['', Validators.email],
+      pEmail: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
+      // pEmail: ['', Validators.email],
       cPhone: ['', Validators.required],
       landLine:['', Validators.required ],
       street: ['', Validators.required],
-      eNumber: ['', Validators.required],
-      iNumber: ['', Validators.required],
+      eNumber: [null, Validators.required],
+      iNumber: [null, Validators.required],
       city: ['', Validators.required],
       commune: ['', Validators.required],
       postal: ['', Validators.required],
       isCheked: [false, Validators.requiredTrue]
     });
+    
   }
 //
   onSubmit(){
     this.submited =true;
     if(this.registerForm.valid){
       alert('énvio exitoso');
-      console.table(this.registerForm.value);
+      return console.table(this.registerForm.value);
     }
   }
 }
