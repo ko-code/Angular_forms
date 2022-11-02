@@ -40,7 +40,7 @@
             <label for="fNacimiento" class="form-label">Fecha de nacimiento</label>
             <input type="date" formControlName="fBorn" id="fBorn" class="form-control">
             <span class="text-danger"
-                *ngIf="(registerForm.controls['fBorn'].invalid && registerForm.controls['fBorn'].touched)">
+                *ngIf="(registerForm.controls['fBorn'].invalid && registerForm.controls['fBorn'].touched && registerForm.controls['fBorn'])">
                     Fecha de nacimiento is required
             </span>
         </div>
@@ -55,10 +55,9 @@
                       </svg>
                 </span>
                 <input type="text" formControlName="pEmail" name="pEmail" id="pEmail" class="form-control" aria-describedby="icon-Email">
-                <span class="text-danger"
-                    *ngIf="( registerForm.controls['pEmail'].invalid && registerForm.controls['pEmail'].touched ) ">
-                    Requiere ingresar un email valido 
-                </span> 
+                <div *ngFor="let validation of form_validation_message.pEmail">
+                    <div class="alert alert-danger" role="alert" *ngIf="registerForm.controls['pEmail'].hasError(validation.type) && registerForm.controls['pEmail'].touched"> {{validation.message }}</div>
+                </div> 
             </div>
             
         </div>
