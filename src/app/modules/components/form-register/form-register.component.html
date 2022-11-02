@@ -10,19 +10,18 @@
     <div class="row g-3 mt-3">
         <div class="col-3">
             <label for="name" class="form-label">Nombre(s)</label>
-            <input type="text" name="nombre"  id="name" class="form-control" formControlName="name">
-            <span class="text-danger"
-                *ngIf="(registerForm.controls['name'].invalid && registerForm.controls['name'].touched)">
-                    Name is required
-            </span>
+            <input type="text" name="nombre"  id="name" class="form-control" formControlName="name"  >
+            <div *ngFor="let validation of form_validation_message.name">
+                <span class="text-danger" role="alert" *ngIf="registerForm.controls['name'].hasError(validation.type) && registerForm.controls['name'].touched"> {{validation.message }}</span>
+            </div> 
+            
         </div>
         <div class="col-3">
             <label for="pLastName" class="form-label">Apellido Paterno</label>
             <input type="text" formControlName="pLastName" name="pLastName" id="pLastName" class="form-control">
-            <span class="text-danger"
-                *ngIf="(registerForm.controls['pLastName'].invalid && registerForm.controls['pLastName'].touched)">
-                    Apelido paterno is required
-            </span>
+            <div *ngFor="let validation of form_validation_message.pLastName">
+                <span class="text-danger" role="alert" *ngIf="registerForm.controls['pLastName'].hasError(validation.type) && registerForm.controls['pLastName'].touched"> {{validation.message }}</span>
+            </div> 
         </div> 
     </div>
 
@@ -30,10 +29,9 @@
         <div class="col-3">
             <label for="aMatern" class="form-label">Apellido Materno</label>
             <input type="text" formControlName="mLastName" name="mLastName" id="mLastName" class="form-control">
-            <span class="text-danger"
-                *ngIf="(registerForm.controls['mLastName'].invalid && registerForm.controls['mLastName'].touched)">
-                    Apellido materno is required
-            </span>
+            <div *ngFor="let validation of form_validation_message.mLastName">
+                <span class="text-danger" role="alert" *ngIf="registerForm.controls['mLastName'].hasError(validation.type) && registerForm.controls['mLastName'].touched"> {{validation.message }}</span>
+            </div>
         </div>
         <div class="col-3">
 
@@ -98,10 +96,9 @@
         <div class="col-3">
             <label for="street" class="form-label">Calle</label>
             <input type="text" formControlName="street" id="street" class="form-control">
-            <span class="text-danger"
-                *ngIf="(registerForm.controls['street'].invalid && registerForm.controls['street'].touched)">
-                    Calle is required
-            </span>
+            <div *ngFor="let validation of form_validation_message.street">
+                <span class="text-danger" role="alert" *ngIf="registerForm.controls['street'].hasError(validation.type) && registerForm.controls['street'].touched"> {{validation.message }}</span>
+            </div>
         </div>
 
         <div class="col-1">
