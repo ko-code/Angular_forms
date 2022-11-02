@@ -122,21 +122,21 @@
 
    <div class="row g-3">
         <div class="col-3">
-            <label for="city" class="form-label">Ciudad</label>
-                <select name="city" formControlName="city" id="city" class="form-select">
-                    <option value="Santiago">Santiago</option>
+            <label for="city" class="form-label">Region</label>
+                <select name="region" formControlName="region" id="region" class="form-select" >
+                    <option value=" a" *ngFor=" let value of regionalizacion.regiones" >{{value.region}}</option>
                 </select>
-                <span class="text-danger"
+                <!-- <span class="text-danger"
                 *ngIf="(registerForm.controls['city'].invalid && registerForm.controls['city'].touched)">
                     Ciudad is required
-            </span>
+            </span> -->
         </div>
 
         <div class="col-3">
             <div>
                 <label for="commune" class="form-label">Comuna</label>
                     <select name="commune" formControlName="commune" id="commune" class="form-select">
-                        <option value="Pudahuel">Pudahuel</option>
+                        <option value="Pudahuel"></option>
                     </select>
                     <span class="text-danger"
                     *ngIf="(registerForm.controls['commune'].invalid && registerForm.controls['commune'].touched)">
