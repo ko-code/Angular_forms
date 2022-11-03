@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import axios from 'axios';
 
@@ -8,6 +8,7 @@ import axios from 'axios';
   styleUrls: ['./form-register.component.css']
 })
 export class FormRegisterComponent implements OnInit {
+  
   
   registerForm!: FormGroup;
   submited = false;
@@ -71,7 +72,9 @@ export class FormRegisterComponent implements OnInit {
     ],
   }
   
+  
   regionalizacion = {
+   
     "regiones": [
         {
             "region": "Arica y Parinacota",
@@ -139,7 +142,11 @@ export class FormRegisterComponent implements OnInit {
          }
     ]
 }
- 
+changed(e:any){
+  console.log(e.target.value)
+  return e.target.data;
+}
+
 //
   onSubmit(){
     this.submited =true;
